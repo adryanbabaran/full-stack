@@ -6,7 +6,6 @@ import UserContext from "../UserContext";
 
 export default function Login() {
 
-	// Allows us to consume the User context object and it's properties to use for user validation 
 	const { user, setUser } = useContext(UserContext);
 
 	console.log(user);
@@ -41,8 +40,6 @@ export default function Login() {
 
 		if (typeof data.access !== "undefined"){
 
-			// Set the email of the authenticated user in the local storage
-        	// Syntax: localStorage.setItem('propertyName', value);
 			localStorage.setItem("token", data.access);
 
 			retrieveUserDetails(data.access);
@@ -80,8 +77,6 @@ export default function Login() {
 
 	const retrieveUserDetails = (token) => {
 
-		// The token will be sent as part of the request's header information
-		// We put "Bearer" in front of the token to follow implementation standards for JWTs
 		fetch("http://localhost:4000/users/details", {
 			headers:{
 				Authorization: `Bearer ${token}`

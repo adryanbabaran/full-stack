@@ -9,8 +9,6 @@ export default function AppNavbar(){
 
 	const { user } = useContext(UserContext);
 
-	// State to store the user information stored in the login page.
-	// const [user, setUser] = useState(localStorage.getItem("token"));
 	console.log(user);
 
 	return (
