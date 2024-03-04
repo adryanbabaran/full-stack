@@ -3,7 +3,9 @@ import { Container } from "react-bootstrap";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 
+import AppNavbar from "./components/AppNavbar";
 import Login from './pages/Login';
+import Logout from './pages/Logout';
 import Register from "./pages/Register";
 
 import './App.css';
@@ -56,14 +58,15 @@ function App() {
 
   return (
     <>
-    <h1>hello</h1>
     <UserProvider value={{ user, setUser, unsetUser }}>
       <Router>
+      <AppNavbar />
 
         <Container fluid>     
           <Routes>
             <Route path="/register" element={<Register />}/>
             <Route path="/login" element={<Login />}/>
+            <Route path="/logout" element={<Logout />}/>
           </Routes>
         </Container>
       </Router>
