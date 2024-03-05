@@ -4,8 +4,10 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 
 import AppNavbar from "./components/AppNavbar";
+import AddProduct from './pages/AddProduct';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
+import Products from './pages/Products';
 import Register from "./pages/Register";
 
 import './App.css';
@@ -64,9 +66,11 @@ function App() {
 
         <Container fluid>     
           <Routes>
-            <Route path="/register" element={<Register />}/>
+            <Route path="/addProduct" element={<AddProduct />}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/logout" element={<Logout />}/>
+            <Route path="/products" element={<Products />}/>
+            <Route path="/register" element={<Register />}/>
           </Routes>
         </Container>
       </Router>

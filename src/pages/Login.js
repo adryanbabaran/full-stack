@@ -20,7 +20,7 @@ export default function Login() {
 
         // Prevents page redirection via form submission
         e.preventDefault();
-		fetch('http://localhost:4000/users/login',{
+		fetch( `${process.env.REACT_APP_API_URL}/users/login`,{
 
 		method: 'POST',
 		headers: {
@@ -77,7 +77,7 @@ export default function Login() {
 
 	const retrieveUserDetails = (token) => {
 
-		fetch("http://localhost:4000/users/details", {
+		fetch(`${process.env.REACT_APP_API_URL}/users/details`, {
 			headers:{
 				Authorization: `Bearer ${token}`
 			}
@@ -108,9 +108,9 @@ export default function Login() {
 
     return (	
 	    	
-	    /*(user.id !== null) ? 
-	    	<Navigate to="/courses" />
-	    :*/
+	    (user.id !== null) ? 
+	    	<Navigate to="/products" />
+	    :
 	    	<>
 		    <Form onSubmit={(e) => authenticate(e)}>
 		    	<h1 className="my-5 text-center">Login</h1>

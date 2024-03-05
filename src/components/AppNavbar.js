@@ -20,13 +20,13 @@ export default function AppNavbar(){
 			        <Navbar.Collapse id="basic-navbar-nav">
 			            <Nav className="ms-auto">
 			            <Nav.Link as={NavLink} to="/">Home</Nav.Link>
-			            <Nav.Link as={NavLink} to="/courses">Products</Nav.Link>
+			            <Nav.Link as={NavLink} to="/products">Products</Nav.Link>
 			            {
 			            	(user.id !== null) ?
 			            	// (user !== null) ?
 			            		(user.isAdmin ) ?
 				            		<>
-				            			<Nav.Link as={Link} to="/addProduct"> Products</Nav.Link>
+				            			<Nav.Link as={Link} to="/addProduct">Add Product</Nav.Link>
 				            			<Nav.Link as={Link} to="/logout">Logout</Nav.Link>
 				            		</>
 			            		:
