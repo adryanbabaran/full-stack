@@ -15,7 +15,7 @@ export default function AppNavbar(){
 
 			<Navbar bg="light" expand="lg">
 			    <Container fluid>
-			        <Navbar.Brand href="#home">Haze</Navbar.Brand>
+			        <Navbar.Brand as={Link} to="/">Haze</Navbar.Brand>
 			        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
 			        <Navbar.Collapse id="basic-navbar-nav">
 			            <Nav className="ms-auto">

@@ -5,13 +5,16 @@ import { Route, Routes } from "react-router-dom";
 
 import AppNavbar from "./components/AppNavbar";
 import AddProduct from './pages/AddProduct';
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Products from './pages/Products';
+import Profile from './pages/Profile';
 import Register from "./pages/Register";
 
 import './App.css';
 import { UserProvider } from "./UserContext";
+
 
 
 function App() {
@@ -67,9 +70,11 @@ function App() {
         <Container fluid>     
           <Routes>
             <Route path="/addProduct" element={<AddProduct />}/>
+            <Route path="/" element={<Home />}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/logout" element={<Logout />}/>
             <Route path="/products" element={<Products />}/>
+            <Route path="/profile" element={<Profile />}/>
             <Route path="/register" element={<Register />}/>
           </Routes>
         </Container>
