@@ -1,5 +1,5 @@
 import {useState,useEffect, useContext} from 'react';
-import {Form,Button} from 'react-bootstrap';
+import {Form,Button, Dropdown} from 'react-bootstrap';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import UserContext from '../UserContext';
@@ -94,10 +94,20 @@ export default function AddProduct(){
             <>
                 <h1 className="my-5 text-center">Add Product</h1>
                 <Form onSubmit={e => createProduct(e)}>
-                    <Form.Group>
-                        <Form.Label>Category:</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Category" required value={category} onChange={e => {setCategory(e.target.value)}}/>
-                    </Form.Group><Form.Group>
+				  <Form.Group>
+				    <Form.Label>Category:</Form.Label>
+				    <Dropdown>
+				      <Dropdown.Toggle variant="primary" id="dropdown-basic">
+				        {category || "Select Category"}
+				      </Dropdown.Toggle>
+				      <Dropdown.Menu>
+				        <Dropdown.Item onClick={() => setCategory("Game")}>Game</Dropdown.Item>
+				        <Dropdown.Item onClick={() => setCategory("Game Merchandise")}>Game Merchandise</Dropdown.Item>
+				      </Dropdown.Menu>
+				    </Dropdown>
+				  </Form.Group>
+
+				    <Form.Group>
                         <Form.Label>Name:</Form.Label>
                         <Form.Control type="text" placeholder="Enter Name" required value={name} onChange={e => {setName(e.target.value)}}/>
                     </Form.Group>
