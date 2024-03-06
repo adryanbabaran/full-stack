@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Container, Tab, Tabs } from "react-bootstrap";
 import ProductCard from './ProductCard';
 //import ProductSearch from "./ProductSearch";
 //import ProductSearchByPrice from "./ProductSearchByPrice";
@@ -30,9 +31,20 @@ export default function UserView({productsData}) {
 	return(
 		/*<Productsearch />
 			<ProductsearchByPrice />*/
-		<>
-			
-			{ products }
-		</>
+		<Container>
+			<Tabs
+		      defaultActiveKey="All"
+		      className="mb-3">
+		      <Tab eventKey="All" title="All">
+		        { products }
+		      </Tab>
+		      <Tab eventKey="Games" title="Games">
+		        Tab content for Profile
+		      </Tab>
+		      <Tab eventKey="Game Merchandise" title="Game Merchandise">
+		        Tab content for Contact
+		      </Tab>
+		    </Tabs>			
+		</Container>
 		)
 }

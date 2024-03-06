@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Container } from 'react-bootstrap';
 
 import ArchiveProduct from "./ArchiveProduct";
 import EditProduct from "./EditProduct";
@@ -20,6 +20,7 @@ export default function AdminView({ productsData, fetchData }) {
 			return (
 				<tr key={product._id}>
 					<td>{product._id}</td>
+					<td>{product.category}</td>
 					<td>{product.name}</td>
 					<td>{product.description}</td>
 					<td>{product.price}</td>
@@ -42,13 +43,14 @@ export default function AdminView({ productsData, fetchData }) {
 
 
 	return(
-		<>
+		<Container>
 			<h1 className="text-center my-4"> Admin Dashboard</h1>
 			
 			<Table striped bordered hover responsive>
 				<thead>
 					<tr className="text-center">
 						<th>ID</th>
+						<th>Category</th>
 						<th>Name</th>
 						<th>Description</th>
 						<th>Price</th>
@@ -61,7 +63,7 @@ export default function AdminView({ productsData, fetchData }) {
 					{products}
 				</tbody>
 			</Table>	
-		</>
+		</Container>
 
 		)
 }

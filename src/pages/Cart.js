@@ -1,23 +1,22 @@
 import { useCallback, useContext, useEffect, useState } from "react";
+
 import UserContext from '../UserContext';
 
-import UserView from '../components/UserView';
-import AdminView from '../components/AdminView';
+export default function Cart(){
 
-export default function Products(){
 
 	const { user } = useContext(UserContext);
 
 	console.log(user)
 
-	const [products, setProducts] = useState([]);
+	const [cart, setCart] = useState([]);
 
 	const fetchData = useCallback(() => {
     
-            let fetchUrl = user.isAdmin === true ? `${process.env.REACT_APP_API_URL}/products/all
-            ` : `${process.env.REACT_APP_API_URL}/products/active`
-
-            fetch(fetchUrl, {
+            // Allows to have a dynamic url depending whether the user that's logged in is an admin or not
+            
+            // headers is included for both /cart/all and /cart/ to allow flexibility even if it is not needed.
+            fetch(`${process.env.REACT_APP_API_URL}/cart`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 }
@@ -28,10 +27,12 @@ export default function Products(){
                 console.log(data);
                 console.log(typeof data.message);
     
+                // Sets the "cart" state to map the data retrieved from the fetch request into several "CourseCard" components
+                // If the data.message is not a string or equal to undefined it will set the cart state with the cart from fetch
                 if(typeof data.message !== "string"){
-                    setProducts(data.products);
+                    setCart(data.cart);
                 } else {
-                    setProducts([]);
+                    setCart([]);
                 }
     
             })
@@ -46,14 +47,7 @@ export default function Products(){
 	return(
 
 			<> 
-				{
-					user.isAdmin ? 
-						<AdminView productsData={products} fetchData={fetchData}/>
-
-					:
-
-						<UserView productsData={products} />
-				}
+				{ cart }
 			</>
 		)
 }
