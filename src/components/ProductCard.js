@@ -60,7 +60,7 @@ export default function ProductCard({productProp}) {
                     <Card.Subtitle>Price:</Card.Subtitle>
                     <Card.Text>PhP { price }</Card.Text>
                     {/*<Card.Text>Enrollees: { count }</Card.Text>*/}
-                    <Link className="btn btn-primary" to={`/products/${_id}`}>Details</Link>
+                    <Link className="btn btn-primary" to={`/products/${_id}`}>Add to cart</Link>
                 </Card.Body>
             </Card>
         )

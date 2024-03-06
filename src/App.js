@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 
 import AppNavbar from "./components/AppNavbar";
 import AddProduct from './pages/AddProduct';
+import AddtoCart from './pages/AddtoCart';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
@@ -70,6 +71,7 @@ function App() {
         <Container fluid>     
           <Routes>
             <Route path="/addProduct" element={<AddProduct />}/>
+            <Route path="/products/:productId" element={<AddtoCart />}/>
             <Route path="/" element={<Home />}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/logout" element={<Logout />}/>
