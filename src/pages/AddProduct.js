@@ -113,7 +113,7 @@ export default function AddProduct(){
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Description:</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Description" required value={description} onChange={e => {setDescription(e.target.value)}}/>
+                        <Form.Control as="textarea" rows={5} placeholder="Enter Description" required value={description} onChange={e => {setDescription(e.target.value)}}/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Price:</Form.Label>

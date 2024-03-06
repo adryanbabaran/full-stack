@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form, Modal } from "react-bootstrap";
+import { Button, Dropdown, Form, Modal } from "react-bootstrap";
 import Swal from "sweetalert2";
 
 export default function EditProduct({ product, fetchData }){
@@ -10,6 +10,7 @@ export default function EditProduct({ product, fetchData }){
 	const [productId, setProductId] = useState("");
 
 	// Forms state
+	const [category, setCategory] = useState("");
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
 	const [price, setPrice] = useState(0);
@@ -27,6 +28,7 @@ export default function EditProduct({ product, fetchData }){
 				console.log(data.product);
 
 				setProductId(data.product._id);
+				setCategory(data.product.category);
 				setName(data.product.name);
 				setDescription(data.product.description);
 				setPrice(data.product.price);
@@ -41,6 +43,7 @@ export default function EditProduct({ product, fetchData }){
 
 		setShowEdit(false);
 		setProductId("");
+		setCategory("");
 		setName("");
 		setDescription("");
 		setPrice(0);
@@ -58,6 +61,7 @@ export default function EditProduct({ product, fetchData }){
 				"Authorization": `Bearer ${localStorage.getItem("token")}`
 			},
 			body: JSON.stringify({
+				category: category,
 				name: name,
 				description: description,
 				price: price
@@ -68,7 +72,7 @@ export default function EditProduct({ product, fetchData }){
 
 			console.log(data);
 
-			if(data.message === "product updated successfully"){
+			if(data.message === "Product updated successfully"){
 				Swal.fire({
 				  title: "Success!",
 				  text: "product successfully updated.",
@@ -102,12 +106,26 @@ export default function EditProduct({ product, fetchData }){
 
 			{/*Edit product Modal*/}
 			<Modal show={showEdit} onHide={closeEdit}>
-				<Form onSubmit={e => editProduct(e, productId)}>
+				<Form className="modal-content" onSubmit={e => editProduct(e, productId)}>
 					<Modal.Header closeButton>
 						<Modal.Title>Edit product</Modal.Title>
 					</Modal.Header>
 
 					<Modal.Body>
+
+						<Form.Group>
+						    <Form.Label>Category:</Form.Label>
+						    <Dropdown>
+						      <Dropdown.Toggle variant="primary" id="dropdown-basic">
+						        {category || "Select Category"}
+						      </Dropdown.Toggle>
+						      <Dropdown.Menu>
+						        <Dropdown.Item onClick={() => setCategory("Game")}>Game</Dropdown.Item>
+						        <Dropdown.Item onClick={() => setCategory("Game Merchandise")}>Game Merchandise</Dropdown.Item>
+						      </Dropdown.Menu>
+						    </Dropdown>
+						</Form.Group>
+
 						<Form.Group controlId="productName">
 						    <Form.Label>Name:</Form.Label>
 						    <Form.Control type="text" required value={name} onChange={e => {setName(e.target.value)}}/>
@@ -115,7 +133,7 @@ export default function EditProduct({ product, fetchData }){
 
 						<Form.Group controlId="productDescription">
 						    <Form.Label>Description:</Form.Label>
-						    <Form.Control type="text" required value={description} onChange={e => {setDescription(e.target.value)}}/>
+						    <Form.Control as="textarea" rows={5} required value={description} onChange={e => {setDescription(e.target.value)}}/>
 						</Form.Group>
 
 						<Form.Group  controlId="productPrice">
