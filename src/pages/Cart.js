@@ -5,13 +5,13 @@ import UserContext from '../UserContext';
 export default function Cart(){
 
 
-	const { user } = useContext(UserContext);
+    const { user } = useContext(UserContext);
 
-	console.log(user)
+    console.log(user)
 
-	const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState([]);
 
-	const fetchData = useCallback(() => {
+    const fetchData = useCallback(() => {
     
             // Allows to have a dynamic url depending whether the user that's logged in is an admin or not
             
@@ -38,16 +38,16 @@ export default function Cart(){
             })
         }, [user.isAdmin]);
 
-	useEffect(() => {
+    useEffect(() => {
 
-		fetchData()
+        fetchData()
 
-	}, [fetchData])
+    }, [fetchData])
 
-	return(
+    return(
 
-			<> 
-				{ cart }
-			</>
-		)
+            <> 
+                { cart }
+            </>
+        )
 }
