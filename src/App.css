@@ -25,9 +25,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .login-cont {
-    height: 310px;
-    min-width: 370px;
-    max-width: 370px;
+    height: 19rem;
+    min-width: 25rem;
+    max-width: 25rem;
+    /* max-width: 370px; */
     background: rgb(78,39,1);
     background: linear-gradient(0deg, rgba(78,39,1,1) 0%, rgba(255,108,2,1) 100%);
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
@@ -36,9 +37,9 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 30px;
 }
 .register-cont {
-    height: 620px;
-    min-width: 400px;
-    max-width: 400px;
+    height: 38.3rem;
+    min-width: 25rem;
+    max-width: 25rem;
     background: rgb(78,39,1);
     background: linear-gradient(0deg, rgba(78,39,1,1) 0%, rgba(255,108,2,1) 100%);
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
@@ -51,12 +52,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 .add-cont {
     height: 660px;
-    min-width: 450px;
-    max-width: 450px;
+    min-width: 75rem;
+    max-width: 75rem;
     background: rgb(78,39,1);
     background: linear-gradient(0deg, rgba(78,39,1,1) 0%, rgba(255,108,2,1) 100%);
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
 }
 .head-name {
     color: rgba(255,108,2,1);
+}
+.add-submit {
+    float: right;
 }

@@ -121,7 +121,7 @@ export default function AddProduct(){
                         <Form.Label className="my-3">Price:</Form.Label>
                         <Form.Control type="number" placeholder="Enter Price" required value={price} onChange={e => {setPrice(e.target.value)}}/>
                     </Form.Group>
-                    <Button variant="primary" type="submit" className="my-4">Submit</Button>
+                    <Button variant="primary" type="submit" className=" add-submit my-4">Submit</Button>
                 </Form>
 			</Container>
 		    </>
