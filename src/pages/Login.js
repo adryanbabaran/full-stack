@@ -113,10 +113,10 @@ export default function Login() {
 	    	<Navigate to="/products" />
 	    :
 	    	<>
-			<div className='back-login'>
-				<Container className='login-cont rounded w-25 p-3 mt-5'>
+			<div className="back-login">
+				<Container className="login-cont rounded w-25 p-3 mt-5">
 					<Form onSubmit={(e) => authenticate(e)}>
-						<h1 className="mb-3 text-center">Login</h1>
+						<h1 className="my-3 text-center">Login</h1>
 						<Form.Group controlId="userEmail">
 							<Form.Label>Email address</Form.Label>
 							<Form.Control 
@@ -150,7 +150,7 @@ export default function Login() {
 							</Button>
 						}
 					</Form>
-					<h6 className='question'>Dont have an account? <Link className='register' to={"/register"}>Register</Link></h6>
+					<h6 className="question">Dont have an account? <Link className="register" to={"/register"}>Register</Link></h6>
 				</Container>
 				
 			</div>

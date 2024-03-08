@@ -3,7 +3,7 @@ import { Form, Button, Modal } from 'react-bootstrap';
 import { Link, Navigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import UserContext from "../UserContext";
-
+import Container from 'react-bootstrap/Container'; 
 export default function Register(){
 
     const { user } = useContext(UserContext);
@@ -108,8 +108,9 @@ export default function Register(){
             <Modal show={isRegistering} backdrop="static" keyboard={false} centered>
                 <Modal.Body>Registering...</Modal.Body>
             </Modal>
-            <Form onSubmit={e => registerUser(e)}>
-                    <h1 className="my-5 text-center">Register</h1>
+            <Container className='register-cont rounded w-25 p-3 my-5'>
+                <Form onSubmit={e => registerUser(e)}>
+                    <h1 className="my-3 text-center">Register</h1>
                     <Form.Group>
                         <Form.Label>First Name</Form.Label>
                         <Form.Control
@@ -118,72 +119,72 @@ export default function Register(){
                             value={ firstName }
                             onChange={e => setFirstName(e.target.value)}
                             required
-                         />
+                        />
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label>Last Name</Form.Label>
+                        <Form.Label className="my-2">Last Name</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Enter Last Name"
                             value={ lastName } 
                             onChange={e => setLastName(e.target.value)}
                             required
-                         />
+                        />
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label>Email</Form.Label>
+                        <Form.Label className="my-2">Email</Form.Label>
                         <Form.Control
                             type="email"
                             placeholder="Enter Email"
                             value={ email } 
                             onChange={e => setEmail(e.target.value)}
                             required
-                         />
+                        />
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label>Mobile No.</Form.Label>
+                        <Form.Label className="my-2">Mobile No.</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Enter 11 digit number"
                             value={ mobileNo } 
                             onChange={e => setMobileNo(e.target.value)}
                             required
-                         />
+                        />
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label>Password</Form.Label>
+                        <Form.Label className="my-2">Password</Form.Label>
                         <Form.Control
                             type="password"
                             placeholder="Enter Password"
                             value={ password } 
                             onChange={e => setPassword(e.target.value)}
                             required
-                         />
+                        />
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label>Confirm Password</Form.Label>
+                        <Form.Label className="my-2">Confirm Password</Form.Label>
                         <Form.Control
                             type="password"
                             placeholder="Confirm Password"
                             value={ confirmPassword } 
                             onChange={e => setConfirmPassword(e.target.value)}
                             required
-                         />
+                        />
                     </Form.Group>
 
                     { isActive ? 
-                        <Button variant="primary" type="submit" id="submitBtn">Submit</Button>
+                        <Button className="reg-submit my-3" variant="primary" type="submit" id="submitBtn">Submit</Button>
                         :
-                        <Button variant="primary" type="submit" id="submitBtn" disabled>Submit</Button>
+                        <Button className='reg-submit my-3' variant="primary" type="submit" id="submitBtn" disabled>Submit</Button>
                     }
                 </Form>
-                <h6>Already have an account? <Link to={"/login"}>Login</Link></h6>
-
+                <h6 className="reg-question">Already have an account? <Link to={"/login"}>Login</Link></h6>
+            </Container>
         </>
     );
 }
