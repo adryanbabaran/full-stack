@@ -1,21 +1,90 @@
-import { useState } from "react";
-import { Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Card , Button } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
-export default function ProductCard({carttProp}) {
+export default function ProductCard({cartProp}) {
 
+    console.log(cartProp);
 
-    const { cartItems, totalPrice } = cartProp;
+    const navigate = useNavigate();
+
+    let cardElements = [];
+
+    if (cartProp && cartProp.length > 0 && cartProp[0].cartItems) {
+        const cartItems = cartProp[0].cartItems;
+        for (let i = 0; i < cartItems.length; i++) {
+            const item = cartItems[i];
+            cardElements.push(
+                <Card key={item.productId}>
+                    <Card.Body>
+                        <Card.Title>pdt Id {item.productId}</Card.Title>
+                        <Card.Text>Quantity: {item.quantity}</Card.Text>
+                        <Card.Subtitle>Subtotal: {item.subTotal}</Card.Subtitle>
+                        {/* Add any additional JSX for the card body */}
+                        <Card.Text>PhP </Card.Text>
+                    </Card.Body>
+                </Card>
+            );
+        }
+    }
+
+    const checkout = () => {
+
+        //console.log("cart for checkout pdtId", productId);
+
+        fetch(`${process.env.REACT_APP_API_URL}/orders/checkout`,{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            },
+            body: JSON.stringify({
+                //productId: productId,
+                //quantity: quantity // Use the quantity state here
+            })
+        }).then(res => res.json())
+            .then(data => {
+
+                console.log(data);
+                console.log(data.message);
+
+                if(data.message === "Order checkout successful"){
+
+                    Swal.fire({
+                      title: "Order checkout successful",
+                      icon: "success"
+                    });
+
+                    // The navigate hook will allow us to navigate and redirect the user back to the courses page programmatically instead of using a component.
+                    navigate("/");
+
+                } else {
+
+                    Swal.fire({
+                      title: "Something went wrong.",
+                      text: data.message,
+                      icon: "error"
+                    });
+
+                }
+
+            })
+
+    }
 
     return (
-            <Card>
-                <Card.Body>
-                    <Card.Title>{ cartItems.productId }</Card.Title>
-                    <Card.Subtitle>Description:</Card.Subtitle>
-                    <Card.Text>{ cartItems.quantity }</Card.Text>
-                    <Card.Subtitle>Price:</Card.Subtitle>
-                    <Card.Text>PhP { cartItems.subTotal }</Card.Text>
-                </Card.Body>
-            </Card>
-        )
+        <>
+            {cardElements.length > 0 ? (
+                <>
+                    {cardElements}
+                    <Button variant="primary" block="true" onClick={checkout}>Checkout</Button>
+                </>
+            ) : (
+                <>
+                    <p>Your cart is empty</p>
+                    <Link className="btn btn-primary btn-block" to="/products">Add to cart now</Link>
+                </>
+            )}
+        </>
+    );
 }

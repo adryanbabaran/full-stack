@@ -1,6 +1,8 @@
 import { useCallback, useContext, useEffect, useState } from "react";
+import { Container} from "react-bootstrap";
 
 import UserContext from '../UserContext';
+import CartItem from "../components/CartItem";
 
 export default function Cart(){
 
@@ -9,13 +11,10 @@ export default function Cart(){
 
     console.log(user)
 
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState();
 
     const fetchData = useCallback(() => {
     
-            // Allows to have a dynamic url depending whether the user that's logged in is an admin or not
-            
-            // headers is included for both /cart/all and /cart/ to allow flexibility even if it is not needed.
             fetch(`${process.env.REACT_APP_API_URL}/cart`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -24,19 +23,23 @@ export default function Cart(){
             .then(res => res.json())
             .then(data => {
     
+                console.log(typeof data);
                 console.log(data);
-                console.log(typeof data.message);
-    
+                console.log(typeof data[0].cartItems);
+                console.log(data[0].cartItems);
+
+                //const data2 = data[0].cartItems.cartItems;
+                
                 // Sets the "cart" state to map the data retrieved from the fetch request into several "CourseCard" components
-                // If the data.message is not a string or equal to undefined it will set the cart state with the cart from fetch
                 if(typeof data.message !== "string"){
-                    setCart(data.cart);
+                    setCart(data);
                 } else {
                     setCart([]);
                 }
     
             })
-        }, [user.isAdmin]);
+    }, []);
+
 
     useEffect(() => {
 
@@ -44,10 +47,14 @@ export default function Cart(){
 
     }, [fetchData])
 
+
+    
+
+
     return(
 
-            <> 
-                { cart }
-            </>
+            <Container>                
+                <CartItem cartProp={cart} />
+            </Container>
         )
 }
