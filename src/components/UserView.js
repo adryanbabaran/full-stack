@@ -5,48 +5,48 @@ import ProductSearch from "./ProductSearch";
 import SearchByPrice from "./SearchByPrice";
 
 
-export default function UserView({productsData}) {
+export default function UserView({ productsData }) {
 
-	const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([]);
 
-	useEffect(() => {
-		console.log(productsData);
+    useEffect(() => {
+        console.log(productsData);
 
-		const productsArr = productsData.map(product => {
-			//only render the active products
-			if(product.isActive === true) {
-				return (
-					<ProductCard productProp={product} key={product._id}/>
-					)
-			} else {
-				return null;
-			}
-		})
+        const filteredProducts = productsData.filter(product => product.isActive === true);
 
-		//set the products state to the result of our map function, to bring our returned product component outside of the scope of our useEffect where our return statement below can see.
-		setProducts(productsArr)
+        setProducts(filteredProducts);
+    }, [productsData]);
 
-	}, [productsData])
-
-	return(
-		<>
-		<Container>
-			<ProductSearch />
-			<SearchByPrice />
-			<Tabs
-		      defaultActiveKey="All"
-		      className="mb-3">
-		      <Tab eventKey="All" title="All">
-		        { products }
-		      </Tab>
-		      <Tab eventKey="Games" title="Games">
-		        Tab content for Profile
-		      </Tab>
-		      <Tab eventKey="Game Merchandise" title="Game Merchandise">
-		        Tab content for Contact
-		      </Tab>
-		    </Tabs>			
-		</Container>
-		</>
-		)
+    return (
+        <>
+            <Container>
+                <ProductSearch />
+                <SearchByPrice />
+                <Tabs
+                    defaultActiveKey="All"
+                    className="mb-3"
+                >
+                    <Tab eventKey="All" title="All">
+                        {products.map(product => (
+                            <ProductCard productProp={product} key={product._id} />
+                        ))}
+                    </Tab>
+                    <Tab eventKey="Games" title="Games">
+                        {products
+                            .filter(product => product.category === "Game")
+                            .map(game => (
+                                <ProductCard productProp={game} key={game._id} />
+                            ))}
+                    </Tab>
+                    <Tab eventKey="Game Merchandise" title="Game Merchandise">
+                        {products
+                            .filter(product => product.category === "Game Merchandise")
+                            .map(merchandise => (
+                                <ProductCard productProp={merchandise} key={merchandise._id} />
+                            ))}
+                    </Tab>
+                </Tabs>
+            </Container>
+        </>
+    );
 }
