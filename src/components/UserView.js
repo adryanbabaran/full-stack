@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Tab, Tabs } from "react-bootstrap";
 import ProductCard from './ProductCard';
-//import ProductSearch from "./ProductSearch";
-//import ProductSearchByPrice from "./ProductSearchByPrice";
+import ProductSearch from "./ProductSearch";
+import SearchByPrice from "./SearchByPrice";
 
 
 export default function UserView({productsData}) {
@@ -29,9 +29,10 @@ export default function UserView({productsData}) {
 	}, [productsData])
 
 	return(
-		/*<Productsearch />
-			<ProductsearchByPrice />*/
+		<>
 		<Container>
+			<ProductSearch />
+			<SearchByPrice />
 			<Tabs
 		      defaultActiveKey="All"
 		      className="mb-3">
@@ -46,5 +47,6 @@ export default function UserView({productsData}) {
 		      </Tab>
 		    </Tabs>			
 		</Container>
+		</>
 		)
 }
