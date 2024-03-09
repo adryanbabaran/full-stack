@@ -28,6 +28,50 @@ export default function ProductCard({cartProp}) {
         }
     }
 
+    const clearCart = () => {
+
+        //console.log("cart for checkout pdtId", productId);
+
+        fetch(`${process.env.REACT_APP_API_URL}/cart/clearCart`,{
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            },
+            body: JSON.stringify({
+                //productId: productId,
+                //quantity: quantity // Use the quantity state here
+            })
+        }).then(res => res.json())
+            .then(data => {
+
+                console.log(data);
+                console.log(data.message);
+
+                if(data.message === "Cart successfully cleared"){
+
+                    Swal.fire({
+                      title: "Cart successfully cleared",
+                      icon: "success"
+                    });
+
+                    // The navigate hook will allow us to navigate and redirect the user back to the courses page programmatically instead of using a component.
+                    navigate("/");
+
+                } else {
+
+                    Swal.fire({
+                      title: "Something went wrong.",
+                      text: data.message,
+                      icon: "error"
+                    });
+
+                }
+
+            })
+
+    }
+
     const checkout = () => {
 
         //console.log("cart for checkout pdtId", productId);
@@ -56,7 +100,7 @@ export default function ProductCard({cartProp}) {
                     });
 
                     // The navigate hook will allow us to navigate and redirect the user back to the courses page programmatically instead of using a component.
-                    navigate("/");
+                    navigate("/cart");
 
                 } else {
 
@@ -77,6 +121,7 @@ export default function ProductCard({cartProp}) {
             {cardElements.length > 0 ? (
                 <>
                     {cardElements}
+                    <Button variant="warning" block="true" onClick={clearCart}>Clear Cart</Button>
                     <Button variant="primary" block="true" onClick={checkout}>Checkout</Button>
                 </>
             ) : (
