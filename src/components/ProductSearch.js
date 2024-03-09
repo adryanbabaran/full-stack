@@ -23,6 +23,8 @@ const ProductSearch = () => {
     }
   };
 
+  console.log(searchResults);
+
   return (
     <div>
       <h2>Product Search</h2>
@@ -41,10 +43,13 @@ const ProductSearch = () => {
       </button>
       <h3>Search Results:</h3>
       <ul>
-        {searchResults.map(product => (
-          // <li key={product.id}>{product.name}</li>
-        	<ProductCard productProp={product} key={product._id}/>
-        ))}
+          { (searchResults.error == "Product not found.")?
+            <p>Product not found</p>
+            :
+            searchResults.filter(product => product.isActive === true).map(productActive => (
+              <ProductCard productProp={productActive} key={productActive._id}/>
+            ))
+          }
       </ul>
     </div>
   );

@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 export default function ProductCard({productProp}) {
 
-    const { _id, name, description, price } = productProp;
+    const { _id, name, category, price } = productProp;
 
     return (
             <Card>
                 <Card.Body>
                     <Card.Title>{ name }</Card.Title>
-                    <Card.Subtitle>Description:</Card.Subtitle>
-                    <Card.Text>{ description }</Card.Text>
+                    <Card.Subtitle>Category:</Card.Subtitle>
+                    <Card.Text>{ category }</Card.Text>
                     <Card.Subtitle>Price:</Card.Subtitle>
                     <Card.Text>PhP { price }</Card.Text>
                     {/*<Card.Text>Enrollees: { count }</Card.Text>*/}

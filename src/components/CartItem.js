@@ -1,4 +1,4 @@
-import { Card , Button } from "react-bootstrap";
+import { Card, Container, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -17,11 +17,9 @@ export default function ProductCard({cartProp}) {
             cardElements.push(
                 <Card key={item.productId}>
                     <Card.Body>
-                        <Card.Title>pdt Id {item.productId}</Card.Title>
+                        <Card.Title>{item.productId}</Card.Title>
                         <Card.Text>Quantity: {item.quantity}</Card.Text>
                         <Card.Subtitle>Subtotal: {item.subTotal}</Card.Subtitle>
-                        {/* Add any additional JSX for the card body */}
-                        <Card.Text>PhP </Card.Text>
                     </Card.Body>
                 </Card>
             );
@@ -117,10 +115,11 @@ export default function ProductCard({cartProp}) {
     }
 
     return (
-        <>
+        <Container>
             {cardElements.length > 0 ? (
                 <>
                     {cardElements}
+                    <h3>Total {cartProp[0].totalPrice}</h3>
                     <Button variant="warning" block="true" onClick={clearCart}>Clear Cart</Button>
                     <Button variant="primary" block="true" onClick={checkout}>Checkout</Button>
                 </>
@@ -130,6 +129,6 @@ export default function ProductCard({cartProp}) {
                     <Link className="btn btn-primary btn-block" to="/products">Add to cart now</Link>
                 </>
             )}
-        </>
+        </Container>
     );
 }
