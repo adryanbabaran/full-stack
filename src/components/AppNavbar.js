@@ -13,7 +13,7 @@ export default function AppNavbar(){
 
 	return (
 
-			<Navbar bg="light" expand="lg">
+			<Navbar className="nav-bar" expand="lg">
 			    <Container fluid>
 			        <Navbar.Brand as={Link} to="/">Haze</Navbar.Brand>
 			        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
