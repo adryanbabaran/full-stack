@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { CardGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Products from "./Products";
+import ProductsPreview from "./ProductsPreview";
 
-export default function FeaturedCourses(){
+export default function FeaturedProducts(){
 
 	const [previews, setPreviews] = useState([]);
 
 	useEffect(() => {
 
-		fetch(`${process.env.REACT_APP_API_URL}/courses/`)
+		fetch(`${process.env.REACT_APP_API_URL}/products/active`)
 			.then(res => res.json())
 			.then(data => {
 
@@ -22,7 +22,7 @@ export default function FeaturedCourses(){
 				// This function generates a random number between 0 and the length of the data array (the fetched course data). It checks if the random number has already been added to the numbers array. If not, it adds the random number to the numbers array. If the random number already exists in the numbers array, it recursively calls itself to generate a new random number.
 				const generateRandomNums = () => {
 
-					let randomNum = Math.floor(Math.random()*data.courses.length)
+					let randomNum = Math.floor(Math.random()*data.products.length)
 
 					if(numbers.indexOf(randomNum) === -1){
 						numbers.push(randomNum);
@@ -37,15 +37,15 @@ export default function FeaturedCourses(){
 
 					generateRandomNums();
 
-					// For each iteration of the loop, the PreviewCourses component is rendered with the corresponding course data from the data array based on the random number. The key prop is set to the _id of the course for React's reconciliation to track components efficiently. The resulting JSX is pushed into the featured array.
+					// For each iteration of the loop, the PreviewProducts component is rendered with the corresponding course data from the data array based on the random number. The key prop is set to the _id of the course for React's reconciliation to track components efficiently. The resulting JSX is pushed into the featured array.
 					featured.push(
 
 						// the breakPoint here is for columns
-						<PreviewCourses data={data.courses[numbers[i]]} key={data.courses[numbers[i]]._id} breakPoint={2} />
+						<ProductsPreview data={data.products[numbers[i]]} key={data.products[numbers[i]]._id} breakPoint={2} />
 					)
 				}
 
-				// After the loop finishes, the setPreviews function is called to update the state of the component with the featured array. This state update triggers a re-render, and the PreviewCourses components are displayed on the page.
+				// After the loop finishes, the setPreviews function is called to update the state of the component with the featured array. This state update triggers a re-render, and the PreviewProducts components are displayed on the page.
 				setPreviews(featured);
 
 
@@ -55,7 +55,7 @@ export default function FeaturedCourses(){
 	return (
 
 			<>
-				<h2 className= "text-center">Featured Courses</h2>
+				<h2 className= "text-center">Featured Products</h2>
 				<CardGroup className= "justify-content-center">
 					
 					{ previews }
