@@ -55,7 +55,7 @@ export default function Cart(){
     return(
 
             <Container>  
-                <Link className="btn btn-primary btn-block" to="/profile">My order history</Link>
+                <Link className="btn btn-primary btn-block" to="/myOrderHistory">My order history</Link>
                 <CartItem cartProp={cart} />
             </Container>
         )

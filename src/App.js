@@ -10,6 +10,7 @@ import Cart from './pages/Cart';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
+import OrderHistory from './pages/OrderHistory';
 import Products from './pages/Products';
 import Profile from './pages/Profile';
 import Register from "./pages/Register";
@@ -77,6 +78,7 @@ function App() {
             <Route path="/" element={<Home />}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/logout" element={<Logout />}/>
+            <Route path="/myOrderHistory" element={<OrderHistory />}/>
             <Route path="/products" element={<Products />}/>
             <Route path="/profile" element={<Profile />}/>
             <Route path="/register" element={<Register />}/>
