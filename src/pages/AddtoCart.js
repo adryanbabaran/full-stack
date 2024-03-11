@@ -104,9 +104,10 @@ export default function AddToCart(){
                             </Form.Group>
                             {
                                 (user.id !== null) ?
-                                    <Button variant="primary" block="true" onClick={addToCart}>Add to cart</Button>
+                                    <Button className="btn-addToCart"
+                                    block="true" onClick={addToCart}>Add to cart</Button>
                                 :
-                                    <Link className="btn btn-danger btn-block" to="/login">Add to cart</Link>
+                                    <Link className="btn-addToCart btn-block" to="/login">Add to cart</Link>
                             }
                         </Card.Body>        
                     </Card>

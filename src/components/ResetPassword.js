@@ -68,7 +68,7 @@ const ResetPassword = () => {
           />
         </div>
         {message && <div className="alert alert-danger">{message}</div>}
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn-addToCart">
           Reset Password
         </button>
       </form>

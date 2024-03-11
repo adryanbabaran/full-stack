@@ -8,7 +8,7 @@ export default function ProductCard({productProp}) {
 
     return (
         <Col xs={12} md={4}>
-            <Card className="card-highlight m-2">
+            <Card className="product-card card-highlight m-2">
                 <Card.Body>
                     <Card.Title className="card-title">{ name }</Card.Title>
                     <Card.Subtitle>Category:</Card.Subtitle>
@@ -16,7 +16,7 @@ export default function ProductCard({productProp}) {
                     <Card.Subtitle>Price:</Card.Subtitle>
                     <Card.Text>PhP { price }</Card.Text>
                     {/*<Card.Text>Enrollees: { count }</Card.Text>*/}
-                    <Link className="btn btn-primary" to={`/products/${_id}`}>Add to cart</Link>
+                    <Link className="btn-addToCart" to={`/products/${_id}`}>Add to cart</Link>
                 </Card.Body>
             </Card>
         </Col>

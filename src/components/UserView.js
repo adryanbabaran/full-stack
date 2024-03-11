@@ -25,7 +25,7 @@ export default function UserView({ productsData }) {
                     defaultActiveKey="All"
                     className="mb-3"
                 >
-                    <Tab eventKey="All" title="All">
+                    <Tab className="d-flex-wrap" eventKey="All" title="All">
                         {products.map(product => (
                             <ProductCard productProp={product} key={product._id} />
                         ))}

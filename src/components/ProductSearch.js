@@ -26,7 +26,7 @@ const ProductSearch = () => {
   console.log(searchResults);
 
   return (
-    <div className="search-container my-1">
+    <div className="search-container my-4">
       <h2>Product Search</h2>
       <div className="form-group my-2">
           <div className="d-flex">
@@ -39,7 +39,7 @@ const ProductSearch = () => {
               onChange={event => setSearchQuery(event.target.value)}
             />
           
-            <button className="btn btn-primary m-1" onClick={handleSearch}>
+            <button className="btn-addToCart m-1" onClick={handleSearch}>
             Search
             </button>
           </div>

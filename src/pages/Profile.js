@@ -39,12 +39,12 @@ export default function Profile() {
     }, []);
 
     return (
-        <div>
-            <h1>Profile</h1>
-            <h4>Name: {`${details.firstName} ${details.lastName}`} </h4>
-            <h4>Email: {`${details.email}`} </h4>
-            <h4>Mobile Number: {`${details.mobileNo}`} </h4>
-            <Button onClick={() => setShowResetPasswordModal(true)}>Reset Password</Button>
+        <div className="my-3">
+            <h1 className="my-3">Profile</h1>
+            <h4 className="my-3">Name: {`${details.firstName} ${details.lastName}`} </h4>
+            <h4 className="my-3">Email: {`${details.email}`} </h4>
+            <h4 className="my-3">Mobile Number: {`${details.mobileNo}`} </h4>
+            <Button className="btn btn-addToCart my-1" onClick={() => setShowResetPasswordModal(true)}>Reset Password</Button>
 
 
             <Modal show={showResetPasswordModal} onHide={() => setShowResetPasswordModal(false)}>
@@ -55,9 +55,11 @@ export default function Profile() {
                     <ResetPassword />
                 </Modal.Body>
             </Modal>
-
-            <h2>My Order History</h2>
-            <OrderHistory />
+            <div className="my-4">
+                <h2>My Order History</h2>
+                <OrderHistory />
+            </div>
+            
         </div>
     )
 }
