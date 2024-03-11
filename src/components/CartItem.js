@@ -120,7 +120,7 @@ export default function ProductCard({cartProp}) {
                 <>
                     {cardElements}
                     <h3>Total {cartProp[0].totalPrice}</h3>
-                    <Button variant="warning" block="true" onClick={clearCart}>Clear Cart</Button>
+                    <Button className="btn-clear" block="true" onClick={clearCart}>Clear Cart</Button>
                     <Button className="btn-addToCart" block="true" onClick={checkout}>Checkout</Button>
                 </>
             ) : (
