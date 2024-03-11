@@ -29,11 +29,11 @@ const ProductSearch = () => {
     <div className="search-container my-1">
       <h2>Product Search</h2>
       <div className="form-group my-2">
-        <label htmlFor="productName">Product Name:</label>
           <div className="d-flex">
             <input
               type="text"
               id="productName"
+              placeholder="Product Name"
               className="form-control h-auto m-1"
               value={searchQuery}
               onChange={event => setSearchQuery(event.target.value)}
