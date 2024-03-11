@@ -7,6 +7,7 @@ import AppNavbar from "./components/AppNavbar";
 import AddProduct from './pages/AddProduct';
 import AddtoCart from './pages/AddtoCart';
 import Cart from './pages/Cart';
+import Error from './pages/Error';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
@@ -82,6 +83,7 @@ function App() {
             <Route path="/products" element={<Products />}/>
             <Route path="/profile" element={<Profile />}/>
             <Route path="/register" element={<Register />}/>
+            <Route path="/*" element={<Error />} />
           </Routes>
         </Container>
       </Router>
