@@ -26,21 +26,24 @@ const ProductSearch = () => {
   console.log(searchResults);
 
   return (
-    <div>
+    <div className="search-container my-1">
       <h2>Product Search</h2>
-      <div className="form-group">
+      <div className="form-group my-2">
         <label htmlFor="productName">Product Name:</label>
-        <input
-          type="text"
-          id="productName"
-          className="form-control"
-          value={searchQuery}
-          onChange={event => setSearchQuery(event.target.value)}
-        />
+          <div className="d-flex">
+            <input
+              type="text"
+              id="productName"
+              className="form-control h-auto m-1"
+              value={searchQuery}
+              onChange={event => setSearchQuery(event.target.value)}
+            />
+          
+            <button className="btn btn-primary m-1" onClick={handleSearch}>
+            Search
+            </button>
+          </div>
       </div>
-      <button className="btn btn-primary" onClick={handleSearch}>
-        Search
-      </button>
       <h3>Search Results:</h3>
       <ul>
           { (searchResults.error == "Product not found.")?

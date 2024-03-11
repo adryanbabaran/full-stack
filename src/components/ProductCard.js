@@ -8,8 +8,8 @@ export default function ProductCard({productProp}) {
 
     return (
             <Card>
-                <Card.Body>
-                    <Card.Title>{ name }</Card.Title>
+                <Card.Body className="product-card">
+                    <Card.Title className="card-title">{ name }</Card.Title>
                     <Card.Subtitle>Category:</Card.Subtitle>
                     <Card.Text>{ category }</Card.Text>
                     <Card.Subtitle>Price:</Card.Subtitle>

@@ -21,7 +21,6 @@ export default function UserView({ productsData }) {
         <>
             <Container>
                 <ProductSearch />
-                <SearchByPrice />
                 <Tabs
                     defaultActiveKey="All"
                     className="mb-3"
