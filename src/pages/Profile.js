@@ -38,8 +38,8 @@ export default function Profile() {
     }, []);
 
     return (
-
-            <div className="my-3">
+        <>
+            <div className="m-5">
 
                 <h1 className="my-3">Profile</h1>
                 <h4 className="my-3">Name: {`${details.firstName} ${details.lastName}`} </h4>
@@ -56,11 +56,9 @@ export default function Profile() {
                         <ResetPassword />
                     </Modal.Body>
                 </Modal>
-                <div className="my-4">
-                    <h2>My Order History</h2>
-                    <OrderHistory />
-                </div>
                 
             </div>
+            <OrderHistory />
+        </>
     )
 }

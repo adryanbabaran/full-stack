@@ -79,7 +79,7 @@ function App() {
             <Route path="/" element={<Home />}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/logout" element={<Logout />}/>
-            <Route path="/myOrderHistory" element={<OrderHistory />}/>
+            <Route path="/orderHistory" element={<OrderHistory />}/>
             <Route path="/products" element={<Products />}/>
             <Route path="/profile" element={<Profile />}/>
             <Route path="/register" element={<Register />}/>

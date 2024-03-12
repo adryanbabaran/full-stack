@@ -23,10 +23,10 @@ export default function AppNavbar(){
 			            <Nav.Link className="text-light" as={NavLink} to="/products">Products</Nav.Link>
 			            {
 			            	(user.id !== null) ?
-			            	// (user !== null) ?
 			            		(user.isAdmin ) ?
 				            		<>
-				            			<Nav.Link className="text-light" as={Link} to="/addProduct">Add Product</Nav.Link>
+				            			<Nav.Link className="text-light" as={Link} to="/addProduct">Add</Nav.Link>
+				            			<Nav.Link className="text-light" as={Link} to="/orderHistory">Orders</Nav.Link>
 				            			<Nav.Link className="text-light" as={Link} to="/logout">Logout</Nav.Link>
 				            		</>
 			            		:

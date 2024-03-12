@@ -52,7 +52,7 @@ export default function CartCard({item}) {
             }
 
     return (
-    	<Card key={item.productId}>
+    	<Card className="m-2" key={item.productId}>
             <Card.Body>
                 <Card.Title>{item.productId}</Card.Title>
                 <Card.Text>Quantity: {item.quantity}</Card.Text>
