@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import ProductCard from "./ProductCard";
 
@@ -6,6 +6,7 @@ import ProductCard from "./ProductCard";
 const ProductSearch = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [isActive, setIsActive] = useState(false);
 
   const handleSearch = async () => {
     try {
@@ -23,6 +24,14 @@ const ProductSearch = () => {
     }
   };
 
+  useEffect(() => {
+        if(searchQuery !== ""){
+            setIsActive(true);
+        } else {
+            setIsActive(false);
+        }
+    }, [searchQuery]);
+
   console.log(searchResults);
 
   return (
@@ -39,14 +48,20 @@ const ProductSearch = () => {
               onChange={event => setSearchQuery(event.target.value)}
             />
           
+          { isActive ? 
             <button className="btn-addToCart m-1" onClick={handleSearch}>
             Search
             </button>
+            :
+            <button className="btn-addToCart m-1" onClick={handleSearch} disabled>
+            Search
+            </button>
+          }
           </div>
       </div>
       <h3>Search Results:</h3>
       <ul>
-          { (searchResults.error == "Product not found.")?
+          { (searchResults.error === "Product not found.")?
             <p>Product not found</p>
             :
             searchResults.filter(product => product.isActive === true).map(productActive => (

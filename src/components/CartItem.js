@@ -1,6 +1,8 @@
-import { Card, Container, Button } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+
+import CartCard from "./CartCard";
 
 export default function ProductCard({cartProp}) {
 
@@ -12,16 +14,11 @@ export default function ProductCard({cartProp}) {
 
     if (cartProp && cartProp.length > 0 && cartProp[0].cartItems) {
         const cartItems = cartProp[0].cartItems;
+
         for (let i = 0; i < cartItems.length; i++) {
             const item = cartItems[i];
             cardElements.push(
-                <Card key={item.productId}>
-                    <Card.Body>
-                        <Card.Title>{item.productId}</Card.Title>
-                        <Card.Text>Quantity: {item.quantity}</Card.Text>
-                        <Card.Subtitle>Subtotal: {item.subTotal}</Card.Subtitle>
-                    </Card.Body>
-                </Card>
+                <CartCard item={item}/>                
             );
         }
     }

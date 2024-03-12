@@ -12,7 +12,7 @@ export default function Logout(){
 			isAdmin: null
 		});
 
-	}, [])
+	}, [setUser])
 
 	return (
 

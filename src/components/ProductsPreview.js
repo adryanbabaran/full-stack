@@ -9,7 +9,7 @@ export default function ProductsPreview(props){
 
 	// console.log(data);
 
-	const { _id, name, description, price } = data;
+	const { _id, name, price } = data;
 
 	return (
 
@@ -20,7 +20,7 @@ export default function ProductsPreview(props){
 			        	<Link className="link-styles" to={`/products/${_id}`} >{name}</Link>
 			   		</Card.Title>
 			   		<h5 className="text-center">{price}</h5>
-			 		<Link className="btn-addToCart d-block text-center" to={`/products/${_id}`} >Details</Link>
+			 		<Link className="btn-addToCart d-block text-center" to={`/products/${_id}`} >Add to Cart</Link>
 			    </Card.Body>
 			</Card>
 		</Col>

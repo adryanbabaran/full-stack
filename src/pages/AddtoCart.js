@@ -91,26 +91,30 @@ export default function AddToCart(){
         <Container className="mt-5">
             <Row>
                 <Col lg={{ span: 6, offset: 3}}>
-                    <Card>
-                        <Card.Body className="text-center">
-                            <Card.Title>{name}</Card.Title>
-                            <Card.Subtitle>Description:</Card.Subtitle>
-                            <Card.Text>{description}</Card.Text>
-                            <Card.Subtitle>Price:</Card.Subtitle>
-                            <Card.Text>PhP {price}</Card.Text>
-                            <Form.Group>
-                                <Form.Label>Quantity:</Form.Label>
-                                <Form.Control type="number" value={quantity} onChange={handleQuantityChange} />
-                            </Form.Group>
-                            {
-                                (user.id !== null) ?
-                                    <Button className="btn-addToCart"
-                                    block="true" onClick={addToCart}>Add to cart</Button>
-                                :
-                                    <Link className="btn-addToCart btn-block" to="/login">Add to cart</Link>
-                            }
-                        </Card.Body>        
-                    </Card>
+<Card>
+    <Card.Body>
+        <div className="text-center mt-3">
+            <Card.Title>{name}</Card.Title>
+        </div>
+        <div className="text-left m-3">
+            <Card.Text><strong>Description:</strong> {description}</Card.Text>
+            <Card.Text><strong>Price:</strong> PhP {price}</Card.Text>
+            <Form.Group>
+                <Form.Label>Quantity:</Form.Label>
+                <Form.Control type="number" value={quantity} onChange={handleQuantityChange} />
+            </Form.Group>
+        </div>
+        <div className="text-center">
+            {
+                (user.id !== null) ?
+                    <Button className="btn-addToCart" block="true" onClick={addToCart}>Add to Cart</Button>
+                :
+                    <Link className="btn-addToCart btn-block" to="/login">Add to Cart</Link>
+            }
+        </div>
+    </Card.Body>        
+</Card>
+
                 </Col>
             </Row>
         </Container>

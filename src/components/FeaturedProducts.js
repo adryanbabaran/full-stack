@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { CardGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import ProductsPreview from "./ProductsPreview";
 
 export default function FeaturedProducts(){

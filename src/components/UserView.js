@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { CardGroup, Container, Tab, Tabs } from "react-bootstrap";
 import ProductCard from './ProductCard';
 import ProductSearch from "./ProductSearch";
-import SearchByPrice from "./SearchByPrice";
-
 
 export default function UserView({ productsData }) {
 

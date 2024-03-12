@@ -48,7 +48,7 @@ export default function Orders(){
 
 			<>
 				{orders.map(order => (
-				            <Card>
+				            <Card key={ order._id }>
 				                <Card.Body>
 				                	<Card.Title>OrderID :{ order._id }</Card.Title>
 				                    <Card.Text>Order Date: { order.orderedOn }</Card.Text>

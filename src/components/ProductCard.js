@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -16,7 +15,7 @@ export default function ProductCard({productProp}) {
                     <Card.Subtitle>Price:</Card.Subtitle>
                     <Card.Text>PhP { price }</Card.Text>
                     {/*<Card.Text>Enrollees: { count }</Card.Text>*/}
-                    <Link className="btn-addToCart" to={`/products/${_id}`}>Add to cart</Link>
+                    <Link className="btn-addToCart" to={`/products/${_id}`}>Add to Cart</Link>
                 </Card.Body>
             </Card>
         </Col>

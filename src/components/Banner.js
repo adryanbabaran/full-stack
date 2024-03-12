@@ -1,4 +1,4 @@
-import { Button, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import HazeLogo from '../images/HAZE.png'; // Import the image
 
