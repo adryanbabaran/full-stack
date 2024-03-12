@@ -18,7 +18,7 @@ export default function ProductCard({cartProp}) {
         for (let i = 0; i < cartItems.length; i++) {
             const item = cartItems[i];
             cardElements.push(
-                <CartCard item={item}/>                
+                <CartCard item={item} key={item._id}/>                
             );
         }
     }

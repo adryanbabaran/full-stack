@@ -1,12 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Form, Button, Modal } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import UserContext from "../UserContext";
 import Container from 'react-bootstrap/Container'; 
 export default function Register(){
 
-    const { user } = useContext(UserContext);
 
     // State hooks to store the values of the input fields 
     const [firstName, setFirstName] = useState("");
