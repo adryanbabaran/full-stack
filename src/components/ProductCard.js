@@ -7,8 +7,8 @@ export default function ProductCard({productProp}) {
     const { _id, name, category, price } = productProp;
 
     return (
-        <Col xs={12} md={4}>
-            <Card className="product-card card-highlight m-2">
+        <Col xs={12} md={4} className="p-2">
+            <Card className="product-card card-highlight">
                 <Card.Body>
                     <Card.Title className="card-title">{ name }</Card.Title>
                     <Card.Subtitle>Category:</Card.Subtitle>

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { Form, Button, Modal } from 'react-bootstrap';
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import UserContext from "../UserContext";
 import Container from 'react-bootstrap/Container'; 

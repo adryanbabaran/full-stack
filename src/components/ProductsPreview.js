@@ -14,20 +14,14 @@ export default function ProductsPreview(props){
 	return (
 
 		<Col xs={12} md={breakPoint} >
-			<Card className="cardHighlight m-2">
+			<Card className="product-card cardHighlight m-2">
 			    <Card.Body className="text-center">
 			    	<Card.Title>
-			        	<Link to={`/products/${_id}`} >{name}</Link>
+			        	<Link className="link-styles" to={`/products/${_id}`} >{name}</Link>
 			   		</Card.Title>
-
-			    	<Card.Text>
-			        	{price}
-			    	</Card.Text>
-			    </Card.Body>
-			    <Card.Footer>
-			 		<h5 className="text-center">{price}</h5>
+			   		<h5 className="text-center">{price}</h5>
 			 		<Link className="btn-addToCart d-block text-center" to={`/products/${_id}`} >Details</Link>
-			    </Card.Footer>
+			    </Card.Body>
 			</Card>
 		</Col>
 

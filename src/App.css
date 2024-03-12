@@ -15,6 +15,11 @@ h1, h2, h3, h4, h5, h6 {
     color: #fbf9f8 !important;
 }
 
+.link-styles {
+    text-decoration: none;
+    color: rgba(255,108,2,1) !important;
+}
+
 .modal {
     background-color: rgba(0, 0, 0, 0.8);
 }
@@ -69,9 +74,11 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
 }
 .product-card {
-    background-color: #FF2400 !important;
+    background-color: #343636 !important;
     color: white !important;
+    height: 100% !important;
 }
+
 .btn-addToCart{
   align-items: center;
   background-clip: padding-box;
@@ -219,3 +226,9 @@ h1, h2, h3, h4, h5, h6 {
     /* border: 2px solid red; */
     
 }
+
+.tab-styles {
+    color: rgba(255,108,2,1) !important;
+}
+
+
