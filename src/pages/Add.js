@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { CardGroup, Container, Tab, Tabs } from "react-bootstrap";
+import { Container, Tab, Tabs } from "react-bootstrap";
 import AddProduct from './AddProduct';
 import AddAdmin from "./AddAdmin";
 
