@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 
 import AppNavbar from "./components/AppNavbar";
-import AddProduct from './pages/AddProduct';
+import Add from './pages/Add';
 import AddtoCart from './pages/AddtoCart';
 import Cart from './pages/Cart';
 import Error from './pages/Error';
@@ -73,7 +73,7 @@ function App() {
 
         <Container fluid>     
           <Routes>
-            <Route path="/addProduct" element={<AddProduct />}/>
+            <Route path="/add" element={<Add />}/>
             <Route path="/products/:productId" element={<AddtoCart />}/>
             <Route path="/cart" element={<Cart />}/>
             <Route path="/" element={<Home />}/>
