@@ -16,7 +16,7 @@ export default function Cart(){
 
     const fetchData = useCallback(() => {
     
-            fetch(`${process.env.REACT_APP_API_URL}/cart`, {
+            fetch(`${process.env.REACT_APP_API_BASE_URL}/cart`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 }

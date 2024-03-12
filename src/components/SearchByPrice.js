@@ -10,7 +10,7 @@ const ProductSearch = () => {
 
     const handleSearchByPriceRange = () => {
         // Fetch API call to search by price range
-        fetch(`${process.env.REACT_APP_API_URL}/productss/searchByPrice`, {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/productss/searchByPrice`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

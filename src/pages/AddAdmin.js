@@ -22,7 +22,7 @@ export default function AddAdmin(){
 		let token = localStorage.getItem('token');
 		console.log(token);
 
-		fetch(`${process.env.REACT_APP_API_URL}/users/${userId}/set-as-admin`,{
+		fetch(`${process.env.REACT_APP_API_BASE_URL}/users/${userId}/set-as-admin`,{
 
 			method: 'PUT',
 			headers: {

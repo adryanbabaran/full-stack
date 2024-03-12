@@ -25,7 +25,7 @@ export default function Register(){
         // Show registering modal
         setIsRegistering(true);
 
-        fetch(`${process.env.REACT_APP_API_URL}/users`, {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/users`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

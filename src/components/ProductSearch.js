@@ -10,7 +10,7 @@ const ProductSearch = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/products/searchByName`, {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/products/searchByName`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

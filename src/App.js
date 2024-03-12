@@ -34,7 +34,7 @@ function App() {
     // console.log(user);
     // console.log(localStorage);
 
-    fetch(`${process.env.REACT_APP_API_URL}/users/details`, {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/users/details`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`
       }

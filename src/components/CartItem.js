@@ -27,7 +27,7 @@ export default function ProductCard({cartProp}) {
 
         //console.log("cart for checkout pdtId", productId);
 
-        fetch(`${process.env.REACT_APP_API_URL}/cart/clearCart`,{
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/cart/clearCart`,{
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -71,7 +71,7 @@ export default function ProductCard({cartProp}) {
 
         //console.log("cart for checkout pdtId", productId);
 
-        fetch(`${process.env.REACT_APP_API_URL}/orders/checkout`,{
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/orders/checkout`,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

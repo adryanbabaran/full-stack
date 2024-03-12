@@ -8,7 +8,7 @@ export default function FeaturedProducts(){
 
 	useEffect(() => {
 
-		fetch(`${process.env.REACT_APP_API_URL}/products/active`)
+		fetch(`${process.env.REACT_APP_API_BASE_URL}/products/active`)
 			.then(res => res.json())
 			.then(data => {
 

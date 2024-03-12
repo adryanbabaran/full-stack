@@ -11,7 +11,7 @@ export default function CartCard({item}) {
 
                 //console.log("cart for checkout pdtId", productId);
 
-                fetch(`${process.env.REACT_APP_API_URL}/cart/${item.productId}/removeFromCart`,{
+                fetch(`${process.env.REACT_APP_API_BASE_URL}/cart/${item.productId}/removeFromCart`,{
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json",

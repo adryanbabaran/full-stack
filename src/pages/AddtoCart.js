@@ -24,7 +24,7 @@ export default function AddToCart(){
 
         console.log("atc pdtId", productId);
 
-        fetch(`${process.env.REACT_APP_API_URL}/cart/addToCart`,{
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/cart/addToCart`,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -68,7 +68,7 @@ export default function AddToCart(){
 
         console.log(productId);
 
-        fetch(`${process.env.REACT_APP_API_URL}/products/${productId}`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/products/${productId}`)
             .then(res => res.json())
             .then(data => {
 

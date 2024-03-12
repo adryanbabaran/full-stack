@@ -12,8 +12,8 @@ export default function Orders(){
 
 	const fetchData = useCallback(() => {
     
-            let fetchUrl = user.isAdmin === true ? `${process.env.REACT_APP_API_URL}/orders/all-orders
-            ` : `${process.env.REACT_APP_API_URL}/orders/my-orders`
+            let fetchUrl = user.isAdmin === true ? `${process.env.REACT_APP_API_BASE_URL}/orders/all-orders
+            ` : `${process.env.REACT_APP_API_BASE_URL}/orders/my-orders`
 
             fetch(fetchUrl, {
                 headers: {
